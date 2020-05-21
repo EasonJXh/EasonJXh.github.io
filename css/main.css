@@ -1155,7 +1155,7 @@ pre .javascript .function {
   bottom: 19px;
 }
 .header {
-  background: url("/hexo/images/banner.jpg") no-repeat;
+  background: url("/images/banner.jpg") no-repeat;
   background-size: cover;
 }
 .header-inner {
@@ -2022,7 +2022,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #8aa4d5;
+  background: #ffd04a;
 }
 .links-of-blogroll {
   font-size: 13px;
