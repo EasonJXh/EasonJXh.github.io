@@ -3,11 +3,11 @@
   <title>Meet a Bigger Future</title>
   
   <subtitle>just do it!</subtitle>
-  <link href="/hexo/atom.xml" rel="self"/>
+  <link href="/atom.xml" rel="self"/>
   
-  <link href="http://localhost:4000/"/>
+  <link href="https://easonjxh.github.io/"/>
   <updated>2020-05-20T06:36:21.136Z</updated>
-  <id>http://localhost:4000/</id>
+  <id>https://easonjxh.github.io/</id>
   
   <author>
     <name>Eason</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://localhost:4000/2020/05/21/hello-world/"/>
-    <id>http://localhost:4000/2020/05/21/hello-world/</id>
+    <link href="https://easonjxh.github.io/2020/05/21/hello-world/"/>
+    <id>https://easonjxh.github.io/2020/05/21/hello-world/</id>
     <published>2020-05-21T11:25:22.394Z</published>
     <updated>2020-05-20T06:36:21.136Z</updated>
     
@@ -35,19 +35,19 @@
     </summary>
     
     
-      <category term="practise" scheme="http://localhost:4000/categories/practise/"/>
+      <category term="practise" scheme="https://easonjxh.github.io/categories/practise/"/>
     
     
-      <category term="hello world" scheme="http://localhost:4000/tags/hello-world/"/>
+      <category term="hello world" scheme="https://easonjxh.github.io/tags/hello-world/"/>
     
-      <category term="start" scheme="http://localhost:4000/tags/start/"/>
+      <category term="start" scheme="https://easonjxh.github.io/tags/start/"/>
     
   </entry>
   
   <entry>
     <title>Django+Oracle</title>
-    <link href="http://localhost:4000/2020/05/19/Django-Oracle/"/>
-    <id>http://localhost:4000/2020/05/19/Django-Oracle/</id>
+    <link href="https://easonjxh.github.io/2020/05/19/Django-Oracle/"/>
+    <id>https://easonjxh.github.io/2020/05/19/Django-Oracle/</id>
     <published>2020-05-19T09:16:41.000Z</published>
     <updated>2020-05-20T06:36:19.018Z</updated>
     
@@ -63,21 +63,21 @@
     </summary>
     
     
-      <category term="technology" scheme="http://localhost:4000/categories/technology/"/>
+      <category term="technology" scheme="https://easonjxh.github.io/categories/technology/"/>
     
     
-      <category term="Oracle" scheme="http://localhost:4000/tags/Oracle/"/>
+      <category term="Oracle" scheme="https://easonjxh.github.io/tags/Oracle/"/>
     
-      <category term="Python" scheme="http://localhost:4000/tags/Python/"/>
+      <category term="Python" scheme="https://easonjxh.github.io/tags/Python/"/>
     
-      <category term="Django" scheme="http://localhost:4000/tags/Django/"/>
+      <category term="Django" scheme="https://easonjxh.github.io/tags/Django/"/>
     
   </entry>
   
   <entry>
     <title>Start Here!</title>
-    <link href="http://localhost:4000/2020/05/19/Start-Here/"/>
-    <id>http://localhost:4000/2020/05/19/Start-Here/</id>
+    <link href="https://easonjxh.github.io/2020/05/19/Start-Here/"/>
+    <id>https://easonjxh.github.io/2020/05/19/Start-Here/</id>
     <published>2020-05-19T08:20:27.000Z</published>
     <updated>2020-05-20T02:56:10.347Z</updated>
     
