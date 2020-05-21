@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/hexo/2020/05/21/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>practise</category>
+      </categories>
+      <tags>
+        <tag>hello world</tag>
+        <tag>start</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Django+Oracle</title>
+    <url>/hexo/2020/05/19/Django-Oracle/</url>
+    <content><![CDATA[<h2 id="搭建PythonWeb框架Django-cx-Oracle隨記"><a href="#搭建PythonWeb框架Django-cx-Oracle隨記" class="headerlink" title="搭建PythonWeb框架Django+cx_Oracle隨記"></a>搭建PythonWeb框架Django+cx_Oracle隨記</h2><p> 在正文開始之前，我們先來聊聊Python比較流行的Web重量級框架-Django，它的功能非常強大，集合了很多Web開發項目中常用的功能模塊，而且應用了組件式開發思想，所以使用起來非常方便，大大減少了代碼量，很好的體現了“優雅”的代碼，並且它的各個模塊非常獨立，松耦合式排布，這對程序員來說是非常友好的。說完了BI層，Django當然在Data層也支持非常多的數據庫連接，比如Oracle,MySql，MongoDB，sqllite等。好，Django我們就先介紹這些最基本特點，要詳細瞭解并使用它，還是要看官方文檔，這裡才是最全的教程：<a href="https://docs.djangoproject.com/zh-hans/3.0/" target="_blank" rel="noopener">Django開發文檔</a>。</p>
+<p>  回到正題，我們現在要搭建以Oracle數據庫為基礎的一套Django框架，作者是以Python3.5為基礎配套的文件，3.5版本以下沒嘗試，平臺是windows 64bit，則我們需要以下素材，都一一列舉給大家：</p>
+<p>1.<a href="https://www.python.org/downloads/" target="_blank" rel="noopener">Python3.5環境</a>，在官方下載好自己需要的壓縮包以後解壓直接安裝，一般情況基本都是“下一步”操作即可，完成以後，打開cmd命令窗口，輸入“python –verson”，按“Enter”，如果順利安裝就可以看到如圖一樣的版本號：<br><img src="https://img-blog.csdnimg.cn/20191209110913192.png" alt="python版本"><br>2.<a href="https://www.djangoproject.com/download/" target="_blank" rel="noopener">Django2.1.14</a>,同樣的操作,現在官網下載好適合自己平臺的壓縮包，將解壓后的整個文件夾（Django-2.1.14）複製到Python的安裝目錄的Python35目錄下，和python.exe同級，複製完成以後，進入複製完的Django-2.1.14目錄，複製其路徑，打開cmd命令窗口，用“cd”命令切換到此目錄下，如果切換不成功，則要切換盤，直接輸入盤名加冒號，比如D盤的話，就輸入“D：”，按“Enter”就可以切換成功，然後數據“python setup.py install”命令，“Enter”，稍等片刻，就會安裝成功，安裝完以後，在命令提示符窗口里輸入“python”命令，然後輸入“import django”，“django.get_version()”,按”Enter”，如果安裝成功則會出現版本號，如圖：<br><img src="https://img-blog.csdnimg.cn/20191209111053252.png" alt="Django版本"></p>
+<p>3.<a href="http://sourceforge.net/projects/cx-oracle/files/" target="_blank" rel="noopener">cx_Oracle5.3</a>，如果找不到相匹配的版本，也可以在<a href="https://oracle.github.io/python-cx_Oracle/" target="_blank" rel="noopener">Oracle官網</a>下載，實在找不到還可以在百度上指定版本下載，下載解壓後是叫cx_Oracle-5.3-11g.win-amd64-py3.5-2.exe的文件，直接執行，該程序可以自動定位到Python的安裝目錄，同理，一般情況，都是“下一步”操作，完成了此步驟還不算完，因為python也是需要oci文件來連接oracle數據庫，所以還需要將64位<a href="https://www.jianshu.com/go-wild?ac=2&url=https://www.oracle.com/database/technologies/oracle12c-windows-downloads.html" target="_blank" rel="noopener">Oracle_client</a>根目錄下的oci.dll文件，oraocci11.dll文件，oraociei11.dll文件複製到Python的安裝目錄Python35\Lib\site-packages下面，這些文件的版本一定要和你的DataBase的版本還有平臺的系統相搭配，放好以後我們就來準備測試。</p>
+<p>  以上所有步驟都完成以後，我們就可以測試是否可以連接到數據庫，打開cmd命令窗口，輸入“python”，然後輸入以下代碼：</p>
+<p>“import cx_Oracle</p>
+<p>conn = cx_Oracle.connect(‘用戶名/密碼@數據庫服務器IP:端口/數據庫實例名稱’)</p>
+<p>curs=conn.cursor()</p>
+<p>sql=’SELECT * FROM …’</p>
+<p>rr=curs.execute (sql)</p>
+<p>row=curs.fetchone()</p>
+<p>print(row[0])</p>
+<p>curs.close()</p>
+<p>conn.close()”，如果所有的步驟都安裝無誤沒有問題則會查詢出你sql語句查詢內容，如圖所示：<br><img src="https://img-blog.csdnimg.cn/20191209111323658.png" alt="cx_Oracle安裝測試"></p>
+<p>至此，如果你都安裝成功，恭喜你，作者也是踩了無數的坑才搭建成功，所以我總結一下特別要注意的的點，都是一些網上的前輩們血淋淋的教訓：</p>
+<p>a.Python3.5支持的Django框架版本都是1.11以上，最好是2.0版本以上</p>
+<p>b.Python3和Python2還是有很大區別，且不向下兼容</p>
+<p>c.Django2.0版本及以上只支持12c數據庫，當然你可以連接成功，但是在創建各個“應用”必須的表的時候，使用migrate命令就會報錯，原因是12c和11g在sql寫法上有區別</p>
+<p>d.cx_Oracle版本不宜過高，高了以後就會出現其他包配置文件不與其相匹配问题</p>
+<p>  總結起來就是要達到，平臺系統，數據庫，Django，cx_Oracle,Python版本相搭配，滿足各自兼容的版本，至此，我們的本節內容就分享完了，也是給自己做個筆記，以防後面忘記又去踩坑。</p>
+<p>  下一節，我們將使用<a href="https://www.microsoftstore.com.cn/" target="_blank" rel="noopener">Visual Studio2017</a>編譯工具講解第一個Django框架的Web項目的具體案例細節，更好的認識Django運行機制，作者使用很久的微軟的東西，習慣了而且，微軟的那一套大家都明白，全家桶，很方便，也可以自定義環境，當然也可以使用大部份人使用的pycharm，但我個人覺得它對我太陌生，使用起來不順手！</p>
+<p>  謝謝各位支持！</p>
+]]></content>
+      <categories>
+        <category>technology</category>
+      </categories>
+      <tags>
+        <tag>Oracle</tag>
+        <tag>Python</tag>
+        <tag>Django</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Start Here!</title>
+    <url>/hexo/2020/05/19/Start-Here/</url>
+    <content><![CDATA[<p>–2020/3/19<br>待办事项：<br>1.完成战情出货动态机种分类后台代码，实现明细展示后台（已完成）<br>2.解决成都塑艺出货问题2020/03/13开始<br>3.解决Trace对接数据后台代码<br>4.完成Chat程序的升级<br>–2020/3/23<br>1.制造一处客退品未抓取问题<br>2.成都塑艺GD996浅绿色出货未抓取（2020/3/13）<br>–2020/3/261.<br>1.<a href="http://10.151.138.76:8056/GetDataFormWEBERP/GetShipmentDataFromWebERP" target="_blank" rel="noopener">http://10.151.138.76:8056/GetDataFormWEBERP/GetShipmentDataFromWebERP</a><br>2.with basedata as(<br>select t.str,<br>       instr(t.str, ‘,’, 1, 1) s1,<br>       instr(t.str, ‘,’, 1, 2) s2,<br>       instr(t.str, ‘,’, 1, 3) s3,<br>       instr(t.str, ‘,’, 1, 4) s4,<br>       instr(t.str, ‘,’, 1, 5) s5<br>  from view_split_str_test t)<br>select t.*,<br>substr(t.str,1,s1-1) str1,<br>substr(t.str,s1+1,s2-s1-1) str2,<br>substr(t.str,s2+1,s3-s2-1) str3,<br>substr(t.str,s3+1,s4-s3-1) str4,<br>substr(t.str,s4+1,s5-s4-1) str5,<br>substr(t.str,s5+1) str6<br> from basedata t;<br>–2020/4/1<br>待办事项备忘：<br>1.Trace系统对接数据资料暂未齐全待对接（正在规划）<br>2.优化并提升料号对应制程的关系，完善逻辑(已完美升级)<br>3.TimChat横向扩展业务,纵向规划方案暂定（小有进展）<br>4.了解ETL对接接口方式以及排程调用job原理（正在持续）<br>5.熟悉部门每个人的工作，以及特点（逐步进行）<br>(蒋小虎贼牛X!!!)<br>ETL:<br>1.库存数据对接job流程<br>组成：cddetails,sz,cd<br>格式：查询出相关数据,利用contact field拼接成接口需要格式，传递即可<br>–2020/4/3<br>一、TimChat功能规划</p>
+<p>纵向：<br>1.新增发送“名片”，“定位”,“截屏”功能,并设计这些功能消息的展示样式<br>2.“+”功能改成弹出式浮窗菜单（已完成）<br>3.首页列表增加“名称”&amp;“主题”展示功能,主题滚动展示，并在交流页面增加背景装饰框（已完成）<br>4.群聊页面进去后增加退出组功能，并设计交互方式（样式已完成待实现功能）<br>5.[重要功能]：增加全屏功能，窗口的聊天页都涉及成局部视图来适配群组聊天（窗口单独化待涉及完成）</p>
+<p>横向：<br>1.完成单人私聊功能<br>2.菜单栏位已动作去刷新“个人”,”群聊”，“消息”首页列表刷新<br>3.完成每个功能菜单下点击事件的特殊动作</p>
+<p>–2020/4/10<br>1.部门使用框架：<br>spring boot<br>mybatis<br>–2020/4/11<br>1.思考生财之道<br>2.确立长期投资目标<br>3.确立长期奋斗目标<br>4.确立短期一年目标<br>5.TimChat精髓之处：<br>A.多个群，多个用户可以采用浏览器多个标签打开的方式进行同时进行沟通[猜的没错应该是局部视图]<br>B.消息发送后定位查看按钮需定义成append添加后的动态触发点击模式，<br>并且点击查看位置后也需要弹出新的网页来直观展示位置信息（当然也可采用layer框架的方式弹出关闭）（已完美完成）<br>C.名片发送，点击时在名片位置出现输入名片信息的天厨框和表情的弹出框样式类似，在内容输入以后，确定发送（已完成）<br>D.完成退出群聊功能<br>E.首页列表刷新功能，考虑实现私聊功能<br>F.更多发挥想象<br>2020/4/22<br>1.增加聊天机器人的功能,或者自动对关键字回答功能<br>2.在“返回”,“进入页面”按钮替换聊天内容，并创建公用变量来实现<br>3.在菜单栏位实现菜单刷新列表,很多特殊功能都可用全局变量来实现<br>–2020/4/29<br>1.选题查询页面所有动作，写入样品录入控制器<br>2.样品录入还缺少答案插入更新<br>3.测试所有接口并改正问题<br>–2020/5/4<br>1.Springboot微服务框架开发要点总结：<br>a.开发环境：Maven（中心库配置要正确,在代码里正确更新mavan）,JDK(jdk环境要正确安装,要在代码里正确设置为本地jdk环境set–&gt;java编译器),<br>数据库（单独配置在resources配置文件当中注意写法即可）调试（Swagger版本&amp;配置要正确）<br>b.语法以及思想：写法（多用依赖注入型写法,或者叫注释型写法来调用jar包中的方法,特定写法可以为前台调用方法时提供很多导向性信息），<br>思想：从控制器入口开始各个层级多用接口封装，实现层尽量与业务层高度松耦合,使用Mybatis框架对应规则整合成各种格式的数据，并给前台多种类型的访问提示<br>后台自己也可以借助Swagger来进行调试，底层（数据底层的逻辑用mapper框架通过id去映射调用，要非常注意参数名称以及返回值类型，复杂sql可通过mapper自带的写法拼接写出）<br>c.更多方便的操作有待挖掘发现<br>2.TimChat内容扩展：<br>增加聊天机器人功能（专门建立一个类库用字典的方式存取对应规则）<br>–2020/5/18<br>1.搭建一套自己的博客系統<br>2.完成一個自己的平台後台管理監控系統<br>3.搭建一套自己的應用場景豐富的springcloud框架</p>
+]]></content>
+  </entry>
+</search>
