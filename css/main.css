@@ -1122,16 +1122,16 @@ pre .javascript .function {
 }
 .back-to-top {
   box-sizing: border-box;
-  border-radius: 5px 5px;
+  border-radius: 8px 8px;
   position: fixed;
   bottom: -100px;
-  right: 20%;
+  right: 47.5%;
   z-index: 1050;
   padding: 0 6px;
   width: initial;
   background: #222;
   font-size: 12px;
-  opacity: 1;
+  opacity: 0.5;
   color: #fff;
   cursor: pointer;
   text-align: center;
@@ -1857,7 +1857,7 @@ pre .javascript .function {
   width: 0;
   z-index: 1040;
   box-shadow: inset 0 2px 6px #000;
-  background: #222;
+  background: #03050c;
   -webkit-transform: translateZ(0);
 }
 .sidebar a {
@@ -1892,9 +1892,10 @@ pre .javascript .function {
 }
 .sidebar-toggle {
   position: fixed;
-  right: 30px;
+  right: 25px;
+  border-radius: 5px 5px;
   bottom: 45px;
-  width: 14px;
+  width: 18px;
   height: 14px;
   padding: 5px;
   background: #222;
@@ -2022,7 +2023,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff8149;
+  background: #4758ff;
 }
 .links-of-blogroll {
   font-size: 13px;

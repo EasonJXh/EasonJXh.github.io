@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="en">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -71,7 +71,7 @@
 
 
 
-  <meta name="keywords" content="Oracle,Python,Django," />
+  <meta name="keywords" content="Python,Django," />
 
 
 
@@ -84,20 +84,18 @@
 
 
 
-<meta name="description" content="搭建PythonWeb框架Django+cx_Oracle隨記 在正文開始之前，我們先來聊聊Python比較流行的Web重量級框架-Django，它的功能非常強大，集合了很多Web開發項目中常用的功能模塊，而且應用了組件式開發思想，所以使用起來非常方便，大大減少了代碼量，很好的體現了“優雅”的代碼，並且它的各個模塊非常獨立，松耦合式排布，這對程序員來說是非常友好的。說完了BI層，Django當然在">
+<meta name="description" content="搭建PythonWeb框架Django+cx_Oracle隨記   在正文開始之前，我們先來聊聊Python比較流行的Web重量級框架-Django，它的功能非常強大，集合了很多Web開發項目中常用的功能模塊，而且應用了組件式開發思想，所以使用起來非常方便，大大減少了代碼量，很好的體現了“優雅”的代碼，並且它的各個模塊非常獨立，松耦合式排布，這對程序員來說是非常友好的。說完了BI層，Django當">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Django+Oracle">
-<meta property="og:url" content="https://easonjxh.github.io/2020/05/19/Django-Oracle/index.html">
+<meta property="og:title" content="Django+Oracle搭建WEB框架">
+<meta property="og:url" content="http://easonjxh.github.io/2020/05/19/Django-Oracle/index.html">
 <meta property="og:site_name" content="Meet a Bigger Future">
-<meta property="og:description" content="搭建PythonWeb框架Django+cx_Oracle隨記 在正文開始之前，我們先來聊聊Python比較流行的Web重量級框架-Django，它的功能非常強大，集合了很多Web開發項目中常用的功能模塊，而且應用了組件式開發思想，所以使用起來非常方便，大大減少了代碼量，很好的體現了“優雅”的代碼，並且它的各個模塊非常獨立，松耦合式排布，這對程序員來說是非常友好的。說完了BI層，Django當然在">
-<meta property="og:locale" content="en_US">
+<meta property="og:description" content="搭建PythonWeb框架Django+cx_Oracle隨記   在正文開始之前，我們先來聊聊Python比較流行的Web重量級框架-Django，它的功能非常強大，集合了很多Web開發項目中常用的功能模塊，而且應用了組件式開發思想，所以使用起來非常方便，大大減少了代碼量，很好的體現了“優雅”的代碼，並且它的各個模塊非常獨立，松耦合式排布，這對程序員來說是非常友好的。說完了BI層，Django當">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191209110913192.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191209111053252.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191209111323658.png">
 <meta property="article:published_time" content="2020-05-19T09:16:41.000Z">
-<meta property="article:modified_time" content="2020-05-20T06:36:19.018Z">
+<meta property="article:modified_time" content="2020-05-24T13:52:48.034Z">
 <meta property="article:author" content="Eason">
-<meta property="article:tag" content="Oracle">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Django">
 <meta name="twitter:card" content="summary">
@@ -117,7 +115,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -131,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="https://easonjxh.github.io/2020/05/19/Django-Oracle/"/>
+  <link rel="canonical" href="http://easonjxh.github.io/2020/05/19/Django-Oracle/"/>
 
 
 
 
 
-  <title>Django+Oracle | Meet a Bigger Future</title>
+  <title>Django+Oracle搭建WEB框架 | Meet a Bigger Future</title>
   
 
 
@@ -149,7 +147,7 @@
 
 <meta name="generator" content="Hexo 4.2.1"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -174,7 +172,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">just do it!</p>
+        <p class="site-subtitle">Just do it!</p>
       
   </div>
 
@@ -199,7 +197,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            首页
           </a>
         </li>
       
@@ -209,7 +207,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            分类
           </a>
         </li>
       
@@ -219,7 +217,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            Tags
+            标签
           </a>
         </li>
       
@@ -229,17 +227,17 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            归档
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-schedule">
-          <a href="/schedule/" rel="section">
+        <li class="menu-item menu-item-schedules">
+          <a href="/schedules/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
             
-            Schedule
+            日程表
           </a>
         </li>
       
@@ -249,7 +247,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            About
+            关于
           </a>
         </li>
       
@@ -262,7 +260,7 @@
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
-            Search
+            搜索
           </a>
         </li>
       
@@ -282,7 +280,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
+             placeholder="搜索..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -320,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://easonjxh.github.io/2020/05/19/Django-Oracle/">
+    <link itemprop="mainEntityOfPage" href="http://easonjxh.github.io/2020/05/19/Django-Oracle/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Eason">
@@ -337,7 +335,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Django+Oracle</h1>
+          <h1 class="post-title" itemprop="name headline">Django+Oracle搭建WEB框架</h1>
         
 
         <div class="post-meta">
@@ -347,9 +345,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-19T17:16:41+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-19T17:16:41+08:00">
                 2020-05-19
               </time>
             
@@ -368,12 +366,12 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/technology/" itemprop="url" rel="index">
-                    <span itemprop="name">technology</span>
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
                   </a>
                 </span>
 
@@ -410,9 +408,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                  <span class="post-meta-item-text">字数统计&#58;</span>
                 
-                <span title="Words count in article">
+                <span title="字数统计">
                   1.3k
                 </span>
               
@@ -426,9 +424,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="Reading time">
+                <span title="阅读时长">
                   4
                 </span>
               
@@ -450,10 +448,11 @@
       
 
       
-        <h2 id="搭建PythonWeb框架Django-cx-Oracle隨記"><a href="#搭建PythonWeb框架Django-cx-Oracle隨記" class="headerlink" title="搭建PythonWeb框架Django+cx_Oracle隨記"></a>搭建PythonWeb框架Django+cx_Oracle隨記</h2><p> 在正文開始之前，我們先來聊聊Python比較流行的Web重量級框架-Django，它的功能非常強大，集合了很多Web開發項目中常用的功能模塊，而且應用了組件式開發思想，所以使用起來非常方便，大大減少了代碼量，很好的體現了“優雅”的代碼，並且它的各個模塊非常獨立，松耦合式排布，這對程序員來說是非常友好的。說完了BI層，Django當然在Data層也支持非常多的數據庫連接，比如Oracle,MySql，MongoDB，sqllite等。好，Django我們就先介紹這些最基本特點，要詳細瞭解并使用它，還是要看官方文檔，這裡才是最全的教程：<a href="https://docs.djangoproject.com/zh-hans/3.0/" target="_blank" rel="noopener">Django開發文檔</a>。</p>
+        <h2 id="搭建PythonWeb框架Django-cx-Oracle隨記"><a href="#搭建PythonWeb框架Django-cx-Oracle隨記" class="headerlink" title="搭建PythonWeb框架Django+cx_Oracle隨記"></a>搭建PythonWeb框架Django+cx_Oracle隨記</h2><p>   在正文開始之前，我們先來聊聊Python比較流行的Web重量級框架-Django，它的功能非常強大，集合了很多Web開發項目中常用的功能模塊，而且應用了組件式開發思想，所以使用起來非常方便，大大減少了代碼量，很好的體現了“優雅”的代碼，並且它的各個模塊非常獨立，松耦合式排布，這對程序員來說是非常友好的。說完了BI層，Django當然在Data層也支持非常多的數據庫連接，比如Oracle,MySql，MongoDB，sqllite等。好，Django我們就先介紹這些最基本特點，要詳細瞭解并使用它，還是要看官方文檔，這裡才是最全的教程：<a href="https://docs.djangoproject.com/zh-hans/3.0/" target="_blank" rel="noopener">Django開發文檔</a>。</p>
 <p>  回到正題，我們現在要搭建以Oracle數據庫為基礎的一套Django框架，作者是以Python3.5為基礎配套的文件，3.5版本以下沒嘗試，平臺是windows 64bit，則我們需要以下素材，都一一列舉給大家：</p>
-<p>1.<a href="https://www.python.org/downloads/" target="_blank" rel="noopener">Python3.5環境</a>，在官方下載好自己需要的壓縮包以後解壓直接安裝，一般情況基本都是“下一步”操作即可，完成以後，打開cmd命令窗口，輸入“python –verson”，按“Enter”，如果順利安裝就可以看到如圖一樣的版本號：<br><img src="https://img-blog.csdnimg.cn/20191209110913192.png" alt="python版本"><br>2.<a href="https://www.djangoproject.com/download/" target="_blank" rel="noopener">Django2.1.14</a>,同樣的操作,現在官網下載好適合自己平臺的壓縮包，將解壓后的整個文件夾（Django-2.1.14）複製到Python的安裝目錄的Python35目錄下，和python.exe同級，複製完成以後，進入複製完的Django-2.1.14目錄，複製其路徑，打開cmd命令窗口，用“cd”命令切換到此目錄下，如果切換不成功，則要切換盤，直接輸入盤名加冒號，比如D盤的話，就輸入“D：”，按“Enter”就可以切換成功，然後數據“python setup.py install”命令，“Enter”，稍等片刻，就會安裝成功，安裝完以後，在命令提示符窗口里輸入“python”命令，然後輸入“import django”，“django.get_version()”,按”Enter”，如果安裝成功則會出現版本號，如圖：<br><img src="https://img-blog.csdnimg.cn/20191209111053252.png" alt="Django版本"></p>
-<p>3.<a href="http://sourceforge.net/projects/cx-oracle/files/" target="_blank" rel="noopener">cx_Oracle5.3</a>，如果找不到相匹配的版本，也可以在<a href="https://oracle.github.io/python-cx_Oracle/" target="_blank" rel="noopener">Oracle官網</a>下載，實在找不到還可以在百度上指定版本下載，下載解壓後是叫cx_Oracle-5.3-11g.win-amd64-py3.5-2.exe的文件，直接執行，該程序可以自動定位到Python的安裝目錄，同理，一般情況，都是“下一步”操作，完成了此步驟還不算完，因為python也是需要oci文件來連接oracle數據庫，所以還需要將64位<a href="https://www.jianshu.com/go-wild?ac=2&url=https://www.oracle.com/database/technologies/oracle12c-windows-downloads.html" target="_blank" rel="noopener">Oracle_client</a>根目錄下的oci.dll文件，oraocci11.dll文件，oraociei11.dll文件複製到Python的安裝目錄Python35\Lib\site-packages下面，這些文件的版本一定要和你的DataBase的版本還有平臺的系統相搭配，放好以後我們就來準備測試。</p>
+<h2 id="Python3-5環境"><a href="#Python3-5環境" class="headerlink" title="Python3.5環境"></a>Python3.5環境</h2><p>  1.<a href="https://www.python.org/downloads/" target="_blank" rel="noopener">Python3.5環境</a>，在官方下載好自己需要的壓縮包以後解壓直接安裝，一般情況基本都是“下一步”操作即可，完成以後，打開cmd命令窗口，輸入“python –verson”，按“Enter”，如果順利安裝就可以看到如圖一樣的版本號：<br><img src="https://img-blog.csdnimg.cn/20191209110913192.png" alt="python版本"></p>
+<h2 id="Django2-1-14"><a href="#Django2-1-14" class="headerlink" title="Django2.1.14"></a>Django2.1.14</h2><p>  2.<a href="https://www.djangoproject.com/download/" target="_blank" rel="noopener">Django2.1.14</a>,同樣的操作,現在官網下載好適合自己平臺的壓縮包，將解壓后的整個文件夾（Django-2.1.14）複製到Python的安裝目錄的Python35目錄下，和python.exe同級，複製完成以後，進入複製完的Django-2.1.14目錄，複製其路徑，打開cmd命令窗口，用“cd”命令切換到此目錄下，如果切換不成功，則要切換盤，直接輸入盤名加冒號，比如D盤的話，就輸入“D：”，按“Enter”就可以切換成功，然後數據“python setup.py install”命令，“Enter”，稍等片刻，就會安裝成功，安裝完以後，在命令提示符窗口里輸入“python”命令，然後輸入“import django”，“django.get_version()”,按”Enter”，如果安裝成功則會出現版本號，如圖：<br><img src="https://img-blog.csdnimg.cn/20191209111053252.png" alt="Django版本"></p>
+<h2 id="cx-Oracle5-3"><a href="#cx-Oracle5-3" class="headerlink" title="cx_Oracle5.3"></a>cx_Oracle5.3</h2><p>  3.<a href="http://sourceforge.net/projects/cx-oracle/files/" target="_blank" rel="noopener">cx_Oracle5.3</a>，如果找不到相匹配的版本，也可以在<a href="https://oracle.github.io/python-cx_Oracle/" target="_blank" rel="noopener">Oracle官網</a>下載，實在找不到還可以在百度上指定版本下載，下載解壓後是叫cx_Oracle-5.3-11g.win-amd64-py3.5-2.exe的文件，直接執行，該程序可以自動定位到Python的安裝目錄，同理，一般情況，都是“下一步”操作，完成了此步驟還不算完，因為python也是需要oci文件來連接oracle數據庫，所以還需要將64位<a href="https://www.jianshu.com/go-wild?ac=2&url=https://www.oracle.com/database/technologies/oracle12c-windows-downloads.html" target="_blank" rel="noopener">Oracle_client</a>根目錄下的oci.dll文件，oraocci11.dll文件，oraociei11.dll文件複製到Python的安裝目錄Python35\Lib\site-packages下面，這些文件的版本一定要和你的DataBase的版本還有平臺的系統相搭配，放好以後我們就來準備測試。</p>
 <p>  以上所有步驟都完成以後，我們就可以測試是否可以連接到數據庫，打開cmd命令窗口，輸入“python”，然後輸入以下代碼：</p>
 <p>“import cx_Oracle</p>
 <p>conn = cx_Oracle.connect(‘用戶名/密碼@數據庫服務器IP:端口/數據庫實例名稱’)</p>
@@ -464,11 +463,11 @@
 <p>print(row[0])</p>
 <p>curs.close()</p>
 <p>conn.close()”，如果所有的步驟都安裝無誤沒有問題則會查詢出你sql語句查詢內容，如圖所示：<br><img src="https://img-blog.csdnimg.cn/20191209111323658.png" alt="cx_Oracle安裝測試"></p>
-<p>至此，如果你都安裝成功，恭喜你，作者也是踩了無數的坑才搭建成功，所以我總結一下特別要注意的的點，都是一些網上的前輩們血淋淋的教訓：</p>
-<p>a.Python3.5支持的Django框架版本都是1.11以上，最好是2.0版本以上</p>
-<p>b.Python3和Python2還是有很大區別，且不向下兼容</p>
-<p>c.Django2.0版本及以上只支持12c數據庫，當然你可以連接成功，但是在創建各個“應用”必須的表的時候，使用migrate命令就會報錯，原因是12c和11g在sql寫法上有區別</p>
-<p>d.cx_Oracle版本不宜過高，高了以後就會出現其他包配置文件不與其相匹配问题</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>  至此，如果你都安裝成功，恭喜你，作者也是踩了無數的坑才搭建成功，所以我總結一下特別要注意的的點，都是一些網上的前輩們血淋淋的教訓：</p>
+<p>  a.Python3.5支持的Django框架版本都是1.11以上，最好是2.0版本以上</p>
+<p>  b.Python3和Python2還是有很大區別，且不向下兼容</p>
+<p>  c.Django2.0版本及以上只支持12c數據庫，當然你可以連接成功，但是在創建各個“應用”必須的表的時候，使用migrate命令就會報錯，原因是12c和11g在sql寫法上有區別</p>
+<p>  d.cx_Oracle版本不宜過高，高了以後就會出現其他包配置文件不與其相匹配问题</p>
 <p>  總結起來就是要達到，平臺系統，數據庫，Django，cx_Oracle,Python版本相搭配，滿足各自兼容的版本，至此，我們的本節內容就分享完了，也是給自己做個筆記，以防後面忘記又去踩坑。</p>
 <p>  下一節，我們將使用<a href="https://www.microsoftstore.com.cn/" target="_blank" rel="noopener">Visual Studio2017</a>編譯工具講解第一個Django框架的Web項目的具體案例細節，更好的認識Django運行機制，作者使用很久的微軟的東西，習慣了而且，微軟的那一套大家都明白，全家桶，很方便，也可以自定義環境，當然也可以使用大部份人使用的pycharm，但我個人覺得它對我太陌生，使用起來不順手！</p>
 <p>  謝謝各位支持！</p>
@@ -486,21 +485,21 @@
         <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
   <div>You are best O(∩_∩)O !</div>
   <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>Donate</span>
+    <span>打赏</span>
   </button>
   <div id="QR" style="display: none;">
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechatpay.png" alt="Eason WeChat Pay"/>
-        <p>WeChat Pay</p>
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Eason 微信支付"/>
+        <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/alipay.png" alt="Eason Alipay"/>
-        <p>Alipay</p>
+        <img id="alipay_qr" src="/images/alipay.png" alt="Eason 支付宝"/>
+        <p>支付宝</p>
       </div>
     
 
@@ -516,16 +515,16 @@
       <div>
         <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>Post author:</strong>
+    <strong>本文作者：</strong>
     Eason
   </li>
   <li class="post-copyright-link">
-    <strong>Post link:</strong>
-    <a href="https://easonjxh.github.io/2020/05/19/Django-Oracle/" title="Django+Oracle">https://easonjxh.github.io/2020/05/19/Django-Oracle/</a>
+    <strong>本文链接：</strong>
+    <a href="http://easonjxh.github.io/2020/05/19/Django-Oracle/" title="Django+Oracle搭建WEB框架">http://easonjxh.github.io/2020/05/19/Django-Oracle/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>Copyright Notice: </strong>
-    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
   </li>
 </ul>
 
@@ -535,8 +534,6 @@
     <footer class="post-footer">
       
         <div class="post-tags">
-          
-            <a href="/tags/Oracle/" rel="tag"># Oracle</a>
           
             <a href="/tags/Python/" rel="tag"># Python</a>
           
@@ -553,8 +550,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/05/19/Start-Here/" rel="next" title="Start Here!">
-                <i class="fa fa-chevron-left"></i> Start Here!
+              <a href="/2020/05/19/Start-Here/" rel="next" title="My Notes">
+                <i class="fa fa-chevron-left"></i> My Notes
               </a>
             
           </div>
@@ -563,8 +560,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/05/21/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
+              <a href="/2020/05/24/nexT%E6%8C%87%E5%8D%97-%E5%A3%B0%E6%98%8E/" rel="prev" title="nexT指南&声明">
+                nexT指南&声明 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -622,10 +619,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            站点概览
           </li>
         </ul>
       
@@ -639,7 +636,7 @@
                 alt="Eason" />
             
               <p class="site-author-name" itemprop="name">Eason</p>
-              <p class="site-description motion-element" itemprop="description">Internet Comprehensive technology</p>
+              <p class="site-description motion-element" itemprop="description">生活为逆水行舟，不进必退！</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -649,8 +646,8 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
@@ -660,8 +657,8 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
                 </a>
               </div>
             
@@ -671,8 +668,8 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
                 </a>
               </div>
             
@@ -701,6 +698,12 @@
                     <a href="Easonjxh@163.com" target="_blank" title="E-Mail">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
                   </span>
                 
             </div>
@@ -741,7 +744,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建PythonWeb框架Django-cx-Oracle隨記"><span class="nav-number">1.</span> <span class="nav-text">搭建PythonWeb框架Django+cx_Oracle隨記</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建PythonWeb框架Django-cx-Oracle隨記"><span class="nav-number">1.</span> <span class="nav-text">搭建PythonWeb框架Django+cx_Oracle隨記</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python3-5環境"><span class="nav-number">2.</span> <span class="nav-text">Python3.5環境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Django2-1-14"><span class="nav-number">3.</span> <span class="nav-text">Django2.1.14</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cx-Oracle5-3"><span class="nav-number">4.</span> <span class="nav-text">cx_Oracle5.3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
@@ -775,21 +778,9 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">2.7k</span>
+    <span title="Site words total count">4.6k</span>
   
 </div>
-
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
-
 
 
 

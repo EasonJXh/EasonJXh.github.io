@@ -1,17 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Start Here!</title>
-    <url>/2020/05/19/Start-Here/</url>
-    <content><![CDATA[<p>–2020/3/19<br>待办事项：<br>1.完成战情出货动态机种分类后台代码，实现明细展示后台（已完成）<br>2.解决成都塑艺出货问题2020/03/13开始<br>3.解决Trace对接数据后台代码<br>4.完成Chat程序的升级<br>–2020/3/23<br>1.制造一处客退品未抓取问题<br>2.成都塑艺GD996浅绿色出货未抓取（2020/3/13）<br>–2020/3/261.<br>1.<a href="http://10.151.138.76:8056/GetDataFormWEBERP/GetShipmentDataFromWebERP" target="_blank" rel="noopener">http://10.151.138.76:8056/GetDataFormWEBERP/GetShipmentDataFromWebERP</a><br>2.with basedata as(<br>select t.str,<br>       instr(t.str, ‘,’, 1, 1) s1,<br>       instr(t.str, ‘,’, 1, 2) s2,<br>       instr(t.str, ‘,’, 1, 3) s3,<br>       instr(t.str, ‘,’, 1, 4) s4,<br>       instr(t.str, ‘,’, 1, 5) s5<br>  from view_split_str_test t)<br>select t.*,<br>substr(t.str,1,s1-1) str1,<br>substr(t.str,s1+1,s2-s1-1) str2,<br>substr(t.str,s2+1,s3-s2-1) str3,<br>substr(t.str,s3+1,s4-s3-1) str4,<br>substr(t.str,s4+1,s5-s4-1) str5,<br>substr(t.str,s5+1) str6<br> from basedata t;<br>–2020/4/1<br>待办事项备忘：<br>1.Trace系统对接数据资料暂未齐全待对接（正在规划）<br>2.优化并提升料号对应制程的关系，完善逻辑(已完美升级)<br>3.TimChat横向扩展业务,纵向规划方案暂定（小有进展）<br>4.了解ETL对接接口方式以及排程调用job原理（正在持续）<br>5.熟悉部门每个人的工作，以及特点（逐步进行）<br>(蒋小虎贼牛X!!!)<br>ETL:<br>1.库存数据对接job流程<br>组成：cddetails,sz,cd<br>格式：查询出相关数据,利用contact field拼接成接口需要格式，传递即可<br>–2020/4/3<br>一、TimChat功能规划</p>
-<p>纵向：<br>1.新增发送“名片”，“定位”,“截屏”功能,并设计这些功能消息的展示样式<br>2.“+”功能改成弹出式浮窗菜单（已完成）<br>3.首页列表增加“名称”&amp;“主题”展示功能,主题滚动展示，并在交流页面增加背景装饰框（已完成）<br>4.群聊页面进去后增加退出组功能，并设计交互方式（样式已完成待实现功能）<br>5.[重要功能]：增加全屏功能，窗口的聊天页都涉及成局部视图来适配群组聊天（窗口单独化待涉及完成）</p>
-<p>横向：<br>1.完成单人私聊功能<br>2.菜单栏位已动作去刷新“个人”,”群聊”，“消息”首页列表刷新<br>3.完成每个功能菜单下点击事件的特殊动作</p>
-<p>–2020/4/10<br>1.部门使用框架：<br>spring boot<br>mybatis<br>–2020/4/11<br>1.思考生财之道<br>2.确立长期投资目标<br>3.确立长期奋斗目标<br>4.确立短期一年目标<br>5.TimChat精髓之处：<br>A.多个群，多个用户可以采用浏览器多个标签打开的方式进行同时进行沟通[猜的没错应该是局部视图]<br>B.消息发送后定位查看按钮需定义成append添加后的动态触发点击模式，<br>并且点击查看位置后也需要弹出新的网页来直观展示位置信息（当然也可采用layer框架的方式弹出关闭）（已完美完成）<br>C.名片发送，点击时在名片位置出现输入名片信息的天厨框和表情的弹出框样式类似，在内容输入以后，确定发送（已完成）<br>D.完成退出群聊功能<br>E.首页列表刷新功能，考虑实现私聊功能<br>F.更多发挥想象<br>2020/4/22<br>1.增加聊天机器人的功能,或者自动对关键字回答功能<br>2.在“返回”,“进入页面”按钮替换聊天内容，并创建公用变量来实现<br>3.在菜单栏位实现菜单刷新列表,很多特殊功能都可用全局变量来实现<br>–2020/4/29<br>1.选题查询页面所有动作，写入样品录入控制器<br>2.样品录入还缺少答案插入更新<br>3.测试所有接口并改正问题<br>–2020/5/4<br>1.Springboot微服务框架开发要点总结：<br>a.开发环境：Maven（中心库配置要正确,在代码里正确更新mavan）,JDK(jdk环境要正确安装,要在代码里正确设置为本地jdk环境set–&gt;java编译器),<br>数据库（单独配置在resources配置文件当中注意写法即可）调试（Swagger版本&amp;配置要正确）<br>b.语法以及思想：写法（多用依赖注入型写法,或者叫注释型写法来调用jar包中的方法,特定写法可以为前台调用方法时提供很多导向性信息），<br>思想：从控制器入口开始各个层级多用接口封装，实现层尽量与业务层高度松耦合,使用Mybatis框架对应规则整合成各种格式的数据，并给前台多种类型的访问提示<br>后台自己也可以借助Swagger来进行调试，底层（数据底层的逻辑用mapper框架通过id去映射调用，要非常注意参数名称以及返回值类型，复杂sql可通过mapper自带的写法拼接写出）<br>c.更多方便的操作有待挖掘发现<br>2.TimChat内容扩展：<br>增加聊天机器人功能（专门建立一个类库用字典的方式存取对应规则）<br>–2020/5/18<br>1.搭建一套自己的博客系統<br>2.完成一個自己的平台後台管理監控系統<br>3.搭建一套自己的應用場景豐富的springcloud框架</p>
+    <title>Django+Oracle搭建WEB框架</title>
+    <url>/2020/05/19/Django-Oracle/</url>
+    <content><![CDATA[<h2 id="搭建PythonWeb框架Django-cx-Oracle隨記"><a href="#搭建PythonWeb框架Django-cx-Oracle隨記" class="headerlink" title="搭建PythonWeb框架Django+cx_Oracle隨記"></a>搭建PythonWeb框架Django+cx_Oracle隨記</h2><p>   在正文開始之前，我們先來聊聊Python比較流行的Web重量級框架-Django，它的功能非常強大，集合了很多Web開發項目中常用的功能模塊，而且應用了組件式開發思想，所以使用起來非常方便，大大減少了代碼量，很好的體現了“優雅”的代碼，並且它的各個模塊非常獨立，松耦合式排布，這對程序員來說是非常友好的。說完了BI層，Django當然在Data層也支持非常多的數據庫連接，比如Oracle,MySql，MongoDB，sqllite等。好，Django我們就先介紹這些最基本特點，要詳細瞭解并使用它，還是要看官方文檔，這裡才是最全的教程：<a href="https://docs.djangoproject.com/zh-hans/3.0/" target="_blank" rel="noopener">Django開發文檔</a>。</p>
+<p>  回到正題，我們現在要搭建以Oracle數據庫為基礎的一套Django框架，作者是以Python3.5為基礎配套的文件，3.5版本以下沒嘗試，平臺是windows 64bit，則我們需要以下素材，都一一列舉給大家：</p>
+<h2 id="Python3-5環境"><a href="#Python3-5環境" class="headerlink" title="Python3.5環境"></a>Python3.5環境</h2><p>  1.<a href="https://www.python.org/downloads/" target="_blank" rel="noopener">Python3.5環境</a>，在官方下載好自己需要的壓縮包以後解壓直接安裝，一般情況基本都是“下一步”操作即可，完成以後，打開cmd命令窗口，輸入“python –verson”，按“Enter”，如果順利安裝就可以看到如圖一樣的版本號：<br><img src="https://img-blog.csdnimg.cn/20191209110913192.png" alt="python版本"></p>
+<h2 id="Django2-1-14"><a href="#Django2-1-14" class="headerlink" title="Django2.1.14"></a>Django2.1.14</h2><p>  2.<a href="https://www.djangoproject.com/download/" target="_blank" rel="noopener">Django2.1.14</a>,同樣的操作,現在官網下載好適合自己平臺的壓縮包，將解壓后的整個文件夾（Django-2.1.14）複製到Python的安裝目錄的Python35目錄下，和python.exe同級，複製完成以後，進入複製完的Django-2.1.14目錄，複製其路徑，打開cmd命令窗口，用“cd”命令切換到此目錄下，如果切換不成功，則要切換盤，直接輸入盤名加冒號，比如D盤的話，就輸入“D：”，按“Enter”就可以切換成功，然後數據“python setup.py install”命令，“Enter”，稍等片刻，就會安裝成功，安裝完以後，在命令提示符窗口里輸入“python”命令，然後輸入“import django”，“django.get_version()”,按”Enter”，如果安裝成功則會出現版本號，如圖：<br><img src="https://img-blog.csdnimg.cn/20191209111053252.png" alt="Django版本"></p>
+<h2 id="cx-Oracle5-3"><a href="#cx-Oracle5-3" class="headerlink" title="cx_Oracle5.3"></a>cx_Oracle5.3</h2><p>  3.<a href="http://sourceforge.net/projects/cx-oracle/files/" target="_blank" rel="noopener">cx_Oracle5.3</a>，如果找不到相匹配的版本，也可以在<a href="https://oracle.github.io/python-cx_Oracle/" target="_blank" rel="noopener">Oracle官網</a>下載，實在找不到還可以在百度上指定版本下載，下載解壓後是叫cx_Oracle-5.3-11g.win-amd64-py3.5-2.exe的文件，直接執行，該程序可以自動定位到Python的安裝目錄，同理，一般情況，都是“下一步”操作，完成了此步驟還不算完，因為python也是需要oci文件來連接oracle數據庫，所以還需要將64位<a href="https://www.jianshu.com/go-wild?ac=2&url=https://www.oracle.com/database/technologies/oracle12c-windows-downloads.html" target="_blank" rel="noopener">Oracle_client</a>根目錄下的oci.dll文件，oraocci11.dll文件，oraociei11.dll文件複製到Python的安裝目錄Python35\Lib\site-packages下面，這些文件的版本一定要和你的DataBase的版本還有平臺的系統相搭配，放好以後我們就來準備測試。</p>
+<p>  以上所有步驟都完成以後，我們就可以測試是否可以連接到數據庫，打開cmd命令窗口，輸入“python”，然後輸入以下代碼：</p>
+<p>“import cx_Oracle</p>
+<p>conn = cx_Oracle.connect(‘用戶名/密碼@數據庫服務器IP:端口/數據庫實例名稱’)</p>
+<p>curs=conn.cursor()</p>
+<p>sql=’SELECT * FROM …’</p>
+<p>rr=curs.execute (sql)</p>
+<p>row=curs.fetchone()</p>
+<p>print(row[0])</p>
+<p>curs.close()</p>
+<p>conn.close()”，如果所有的步驟都安裝無誤沒有問題則會查詢出你sql語句查詢內容，如圖所示：<br><img src="https://img-blog.csdnimg.cn/20191209111323658.png" alt="cx_Oracle安裝測試"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>  至此，如果你都安裝成功，恭喜你，作者也是踩了無數的坑才搭建成功，所以我總結一下特別要注意的的點，都是一些網上的前輩們血淋淋的教訓：</p>
+<p>  a.Python3.5支持的Django框架版本都是1.11以上，最好是2.0版本以上</p>
+<p>  b.Python3和Python2還是有很大區別，且不向下兼容</p>
+<p>  c.Django2.0版本及以上只支持12c數據庫，當然你可以連接成功，但是在創建各個“應用”必須的表的時候，使用migrate命令就會報錯，原因是12c和11g在sql寫法上有區別</p>
+<p>  d.cx_Oracle版本不宜過高，高了以後就會出現其他包配置文件不與其相匹配问题</p>
+<p>  總結起來就是要達到，平臺系統，數據庫，Django，cx_Oracle,Python版本相搭配，滿足各自兼容的版本，至此，我們的本節內容就分享完了，也是給自己做個筆記，以防後面忘記又去踩坑。</p>
+<p>  下一節，我們將使用<a href="https://www.microsoftstore.com.cn/" target="_blank" rel="noopener">Visual Studio2017</a>編譯工具講解第一個Django框架的Web項目的具體案例細節，更好的認識Django運行機制，作者使用很久的微軟的東西，習慣了而且，微軟的那一套大家都明白，全家桶，很方便，也可以自定義環境，當然也可以使用大部份人使用的pycharm，但我個人覺得它對我太陌生，使用起來不順手！</p>
+<p>  謝謝各位支持！</p>
 ]]></content>
+      <categories>
+        <category>Technology</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Django</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>My Notes</title>
+    <url>/2020/05/19/Start-Here/</url>
+    <content><![CDATA[<h2 id="2020-3-19"><a href="#2020-3-19" class="headerlink" title="2020/3/19"></a>2020/3/19</h2><h3 id="待办事项："><a href="#待办事项：" class="headerlink" title="待办事项："></a>待办事项：</h3><ul>
+<li>完成战情出货动态机种分类后台代码，实现明细展示后台（已完成）</li>
+<li>解决成都塑艺出货问题2020/03/13开始</li>
+<li>解决Trace对接数据后台代码</li>
+<li>完成Chat程序的升级</li>
+</ul>
+<h2 id="2020-3-23"><a href="#2020-3-23" class="headerlink" title="2020/3/23"></a>2020/3/23</h2><ul>
+<li>制造一处客退品未抓取问题</li>
+<li>成都塑艺GD996浅绿色出货未抓取（2020/3/13）</li>
+</ul>
+<h2 id="2020-3-26"><a href="#2020-3-26" class="headerlink" title="2020/3/26"></a>2020/3/26</h2><ul>
+<li><a href="http://10.151.138.76:8056/GetDataFormWEBERP/GetShipmentDataFromWebERP" target="_blank" rel="noopener">仓储物流抓出货网址</a></li>
+<li><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> basedata <span class="keyword">as</span>(</span><br><span class="line"><span class="keyword">select</span> t.str,</span><br><span class="line">       <span class="keyword">instr</span>(t.str, <span class="string">','</span>, <span class="number">1</span>, <span class="number">1</span>) s1,</span><br><span class="line">       <span class="keyword">instr</span>(t.str, <span class="string">','</span>, <span class="number">1</span>, <span class="number">2</span>) s2,</span><br><span class="line">       <span class="keyword">instr</span>(t.str, <span class="string">','</span>, <span class="number">1</span>, <span class="number">3</span>) s3,</span><br><span class="line">       <span class="keyword">instr</span>(t.str, <span class="string">','</span>, <span class="number">1</span>, <span class="number">4</span>) s4,</span><br><span class="line">       <span class="keyword">instr</span>(t.str, <span class="string">','</span>, <span class="number">1</span>, <span class="number">5</span>) s5</span><br><span class="line">  <span class="keyword">from</span> view_split_str_test t)</span><br><span class="line"><span class="keyword">select</span> t.*,</span><br><span class="line"><span class="keyword">substr</span>(t.str,<span class="number">1</span>,s1<span class="number">-1</span>) str1,</span><br><span class="line"><span class="keyword">substr</span>(t.str,s1+<span class="number">1</span>,s2-s1<span class="number">-1</span>) str2,</span><br><span class="line"><span class="keyword">substr</span>(t.str,s2+<span class="number">1</span>,s3-s2<span class="number">-1</span>) str3,</span><br><span class="line"><span class="keyword">substr</span>(t.str,s3+<span class="number">1</span>,s4-s3<span class="number">-1</span>) str4,</span><br><span class="line"><span class="keyword">substr</span>(t.str,s4+<span class="number">1</span>,s5-s4<span class="number">-1</span>) str5,</span><br><span class="line"><span class="keyword">substr</span>(t.str,s5+<span class="number">1</span>) str6</span><br><span class="line"> <span class="keyword">from</span> basedata t;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="2020-4-1"><a href="#2020-4-1" class="headerlink" title="2020/4/1"></a>2020/4/1</h2><h3 id="待办事项备忘："><a href="#待办事项备忘：" class="headerlink" title="待办事项备忘："></a>待办事项备忘：</h3><ul>
+<li>Trace系统对接数据资料暂未齐全待对接（正在规划）</li>
+<li>优化并提升料号对应制程的关系，完善逻辑(已完美升级)</li>
+<li>TimChat横向扩展业务,纵向规划方案暂定（小有进展）</li>
+<li>了解ETL对接接口方式以及排程调用job原理（正在持续）</li>
+<li>熟悉部门每个人的工作，以及特点（逐步进行）</li>
+</ul>
+<h3 id="ETL"><a href="#ETL" class="headerlink" title="ETL:"></a>ETL:</h3><ul>
+<li>库存数据对接job流程</li>
+<li>组成：cddetails,sz,cd</li>
+<li>格式：查询出相关数据,利用contact field拼接成接口需要格式，传递即可</li>
+</ul>
+<h2 id="2020-4-3"><a href="#2020-4-3" class="headerlink" title="2020/4/3"></a>2020/4/3</h2><h3 id="TimChat功能规划"><a href="#TimChat功能规划" class="headerlink" title="TimChat功能规划"></a>TimChat功能规划</h3><h3 id="纵向："><a href="#纵向：" class="headerlink" title="纵向："></a>纵向：</h3><ul>
+<li>新增发送“名片”，“定位”,“截屏”功能,并设计这些功能消息的展示样式</li>
+<li>“+”功能改成弹出式浮窗菜单（已完成）</li>
+<li>首页列表增加“名称”&amp;“主题”展示功能,主题滚动展示，并在交流页面增加背景装饰框（已完成）</li>
+<li>群聊页面进去后增加退出组功能，并设计交互方式（样式已完成待实现功能）</li>
+<li>[重要功能]：增加全屏功能，窗口的聊天页都涉及成局部视图来适配群组聊天（窗口单独化待涉及完成）</li>
+</ul>
+<h3 id="横向："><a href="#横向：" class="headerlink" title="横向："></a>横向：</h3><ul>
+<li>完成单人私聊功能</li>
+<li>菜单栏位已动作去刷新“个人”,”群聊”，“消息”首页列表刷新</li>
+<li>完成每个功能菜单下点击事件的特殊动作</li>
+</ul>
+<h2 id="2020-4-10"><a href="#2020-4-10" class="headerlink" title="2020/4/10"></a>2020/4/10</h2><ul>
+<li>部门使用框架：</li>
+<li>spring boot</li>
+<li>mybatis</li>
+</ul>
+<h2 id="2020-4-11"><a href="#2020-4-11" class="headerlink" title="2020/4/11"></a>2020/4/11</h2><ul>
+<li>思考生财之道</li>
+<li>确立长期投资目标</li>
+<li>确立长期奋斗目标</li>
+<li>确立短期一年目标</li>
+</ul>
+<h3 id="TimChat精髓之处："><a href="#TimChat精髓之处：" class="headerlink" title="TimChat精髓之处："></a>TimChat精髓之处：</h3><ul>
+<li>多个群，多个用户可以采用浏览器多个标签打开的方式进行同时进行沟通[猜的没错应该是局部视图]</li>
+<li>消息发送后定位查看按钮需定义成append添加后的动态触发点击模式，</li>
+<li>并且点击查看位置后也需要弹出新的网页来直观展示位置信息（当然也可采用layer框架的方式弹出关闭）（已完美完成）</li>
+<li>名片发送，点击时在名片位置出现输入名片信息的天厨框和表情的弹出框样式类似，在内容输入以后，确定发送（已完成）</li>
+<li>完成退出群聊功能</li>
+<li>首页列表刷新功能，考虑实现私聊功能</li>
+<li>更多发挥想象</li>
+</ul>
+<h2 id="2020-4-22"><a href="#2020-4-22" class="headerlink" title="2020/4/22"></a>2020/4/22</h2><ul>
+<li>增加聊天机器人的功能,或者自动对关键字回答功能</li>
+<li>在“返回”,“进入页面”按钮替换聊天内容，并创建公用变量来实现</li>
+<li>在菜单栏位实现菜单刷新列表,很多特殊功能都可用全局变量来实现</li>
+</ul>
+<h2 id="2020-4-29"><a href="#2020-4-29" class="headerlink" title="2020/4/29"></a>2020/4/29</h2><ul>
+<li>选题查询页面所有动作，写入样品录入控制器</li>
+<li>样品录入还缺少答案插入更新</li>
+<li>测试所有接口并改正问题</li>
+</ul>
+<h2 id="2020-5-4"><a href="#2020-5-4" class="headerlink" title="2020/5/4"></a>2020/5/4</h2><h3 id="Springboot微服务框架开发要点总结："><a href="#Springboot微服务框架开发要点总结：" class="headerlink" title="Springboot微服务框架开发要点总结："></a>Springboot微服务框架开发要点总结：</h3><ul>
+<li>开发环境：Maven（中心库配置要正确,在代码里正确更新mavan）,JDK(jdk环境要正确安装,要在代码里正确设置为本地jdk环境set–&gt;java编译器),<br>数据库（单独配置在resources配置文件当中注意写法即可）调试（Swagger版本&amp;配置要正确）</li>
+<li>语法以及思想：写法（多用依赖注入型写法,或者叫注释型写法来调用jar包中的方法,特定写法可以为前台调用方法时提供很多导向性信息），</li>
+<li>思想：从控制器入口开始各个层级多用接口封装，实现层尽量与业务层高度松耦合,使用Mybatis框架对应规则整合成各种格式的数据，并给前台多种类型的访问提示<br>后台自己也可以借助Swagger来进行调试，底层（数据底层的逻辑用mapper框架通过id去映射调用，要非常注意参数名称以及返回值类型，复杂sql可通过mapper自带的写法拼接写出）</li>
+<li>更多方便的操作有待挖掘发现<h3 id="TimChat内容扩展："><a href="#TimChat内容扩展：" class="headerlink" title="TimChat内容扩展："></a>TimChat内容扩展：</h3></li>
+<li>增加聊天机器人功能（专门建立一个类库用字典的方式存取对应规则）</li>
+</ul>
+<h2 id="2020-5-18"><a href="#2020-5-18" class="headerlink" title="2020/5/18"></a>2020/5/18</h2><ul>
+<li>搭建一套自己的博客系統</li>
+<li>完成一個自己的平台後台管理監控系統</li>
+<li>搭建一套自己的應用場景豐富的springcloud框架</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Personal</category>
+      </categories>
+      <tags>
+        <tag>Notes</tag>
+      </tags>
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/2020/05/21/hello-world/</url>
+    <url>/2020/05/24/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
@@ -27,46 +146,177 @@
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 ]]></content>
       <categories>
-        <category>practise</category>
+        <category>Start</category>
       </categories>
       <tags>
-        <tag>hello world</tag>
-        <tag>start</tag>
+        <tag>Hello World</tag>
+        <tag>Start</tag>
       </tags>
   </entry>
   <entry>
-    <title>Django+Oracle</title>
-    <url>/2020/05/19/Django-Oracle/</url>
-    <content><![CDATA[<h2 id="搭建PythonWeb框架Django-cx-Oracle隨記"><a href="#搭建PythonWeb框架Django-cx-Oracle隨記" class="headerlink" title="搭建PythonWeb框架Django+cx_Oracle隨記"></a>搭建PythonWeb框架Django+cx_Oracle隨記</h2><p> 在正文開始之前，我們先來聊聊Python比較流行的Web重量級框架-Django，它的功能非常強大，集合了很多Web開發項目中常用的功能模塊，而且應用了組件式開發思想，所以使用起來非常方便，大大減少了代碼量，很好的體現了“優雅”的代碼，並且它的各個模塊非常獨立，松耦合式排布，這對程序員來說是非常友好的。說完了BI層，Django當然在Data層也支持非常多的數據庫連接，比如Oracle,MySql，MongoDB，sqllite等。好，Django我們就先介紹這些最基本特點，要詳細瞭解并使用它，還是要看官方文檔，這裡才是最全的教程：<a href="https://docs.djangoproject.com/zh-hans/3.0/" target="_blank" rel="noopener">Django開發文檔</a>。</p>
-<p>  回到正題，我們現在要搭建以Oracle數據庫為基礎的一套Django框架，作者是以Python3.5為基礎配套的文件，3.5版本以下沒嘗試，平臺是windows 64bit，則我們需要以下素材，都一一列舉給大家：</p>
-<p>1.<a href="https://www.python.org/downloads/" target="_blank" rel="noopener">Python3.5環境</a>，在官方下載好自己需要的壓縮包以後解壓直接安裝，一般情況基本都是“下一步”操作即可，完成以後，打開cmd命令窗口，輸入“python –verson”，按“Enter”，如果順利安裝就可以看到如圖一樣的版本號：<br><img src="https://img-blog.csdnimg.cn/20191209110913192.png" alt="python版本"><br>2.<a href="https://www.djangoproject.com/download/" target="_blank" rel="noopener">Django2.1.14</a>,同樣的操作,現在官網下載好適合自己平臺的壓縮包，將解壓后的整個文件夾（Django-2.1.14）複製到Python的安裝目錄的Python35目錄下，和python.exe同級，複製完成以後，進入複製完的Django-2.1.14目錄，複製其路徑，打開cmd命令窗口，用“cd”命令切換到此目錄下，如果切換不成功，則要切換盤，直接輸入盤名加冒號，比如D盤的話，就輸入“D：”，按“Enter”就可以切換成功，然後數據“python setup.py install”命令，“Enter”，稍等片刻，就會安裝成功，安裝完以後，在命令提示符窗口里輸入“python”命令，然後輸入“import django”，“django.get_version()”,按”Enter”，如果安裝成功則會出現版本號，如圖：<br><img src="https://img-blog.csdnimg.cn/20191209111053252.png" alt="Django版本"></p>
-<p>3.<a href="http://sourceforge.net/projects/cx-oracle/files/" target="_blank" rel="noopener">cx_Oracle5.3</a>，如果找不到相匹配的版本，也可以在<a href="https://oracle.github.io/python-cx_Oracle/" target="_blank" rel="noopener">Oracle官網</a>下載，實在找不到還可以在百度上指定版本下載，下載解壓後是叫cx_Oracle-5.3-11g.win-amd64-py3.5-2.exe的文件，直接執行，該程序可以自動定位到Python的安裝目錄，同理，一般情況，都是“下一步”操作，完成了此步驟還不算完，因為python也是需要oci文件來連接oracle數據庫，所以還需要將64位<a href="https://www.jianshu.com/go-wild?ac=2&url=https://www.oracle.com/database/technologies/oracle12c-windows-downloads.html" target="_blank" rel="noopener">Oracle_client</a>根目錄下的oci.dll文件，oraocci11.dll文件，oraociei11.dll文件複製到Python的安裝目錄Python35\Lib\site-packages下面，這些文件的版本一定要和你的DataBase的版本還有平臺的系統相搭配，放好以後我們就來準備測試。</p>
-<p>  以上所有步驟都完成以後，我們就可以測試是否可以連接到數據庫，打開cmd命令窗口，輸入“python”，然後輸入以下代碼：</p>
-<p>“import cx_Oracle</p>
-<p>conn = cx_Oracle.connect(‘用戶名/密碼@數據庫服務器IP:端口/數據庫實例名稱’)</p>
-<p>curs=conn.cursor()</p>
-<p>sql=’SELECT * FROM …’</p>
-<p>rr=curs.execute (sql)</p>
-<p>row=curs.fetchone()</p>
-<p>print(row[0])</p>
-<p>curs.close()</p>
-<p>conn.close()”，如果所有的步驟都安裝無誤沒有問題則會查詢出你sql語句查詢內容，如圖所示：<br><img src="https://img-blog.csdnimg.cn/20191209111323658.png" alt="cx_Oracle安裝測試"></p>
-<p>至此，如果你都安裝成功，恭喜你，作者也是踩了無數的坑才搭建成功，所以我總結一下特別要注意的的點，都是一些網上的前輩們血淋淋的教訓：</p>
-<p>a.Python3.5支持的Django框架版本都是1.11以上，最好是2.0版本以上</p>
-<p>b.Python3和Python2還是有很大區別，且不向下兼容</p>
-<p>c.Django2.0版本及以上只支持12c數據庫，當然你可以連接成功，但是在創建各個“應用”必須的表的時候，使用migrate命令就會報錯，原因是12c和11g在sql寫法上有區別</p>
-<p>d.cx_Oracle版本不宜過高，高了以後就會出現其他包配置文件不與其相匹配问题</p>
-<p>  總結起來就是要達到，平臺系統，數據庫，Django，cx_Oracle,Python版本相搭配，滿足各自兼容的版本，至此，我們的本節內容就分享完了，也是給自己做個筆記，以防後面忘記又去踩坑。</p>
-<p>  下一節，我們將使用<a href="https://www.microsoftstore.com.cn/" target="_blank" rel="noopener">Visual Studio2017</a>編譯工具講解第一個Django框架的Web項目的具體案例細節，更好的認識Django運行機制，作者使用很久的微軟的東西，習慣了而且，微軟的那一套大家都明白，全家桶，很方便，也可以自定義環境，當然也可以使用大部份人使用的pycharm，但我個人覺得它對我太陌生，使用起來不順手！</p>
-<p>  謝謝各位支持！</p>
+    <title>nexT指南&amp;声明</title>
+    <url>/2020/05/24/nexT%E6%8C%87%E5%8D%97-%E5%A3%B0%E6%98%8E/</url>
+    <content><![CDATA[<h1 align="center">本项目已停止维护。:warning:</h1>
+<h2 align="center">社区维护的版本请移步这里：<a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">NexT v6 and v7 :triangular_flag_on_post:</a></h2>
+
+<h1 align="center">NexT</h1>
+
+<p align="center">NexT 是一个高质量并且优雅的<a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a> 主题。这是精心制作做出来的 hexo 主题。</p>
+
+<p><a href="https://gitter.im/iissnan/hexo-theme-next?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge" target="_blank" rel="noopener"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/iissnan/hexo-theme-next"></a><br><a href="https://github.com/iissnan/hexo-theme-next/commits/master" target="_blank" rel="noopener"><img src="https://img.shields.io/maintenance/yes/2017.svg" alt="mnt-image"></a><br><a href="https://travis-ci.org/iissnan/hexo-theme-next?branch=master" target="_blank" rel="noopener" title="Travis CI"><img src="https://travis-ci.org/iissnan/hexo-theme-next.svg?branch=master" alt="travis-image"></a><br><a href="https://github.com/iissnan/hexo-theme-next/releases" target="_blank" rel="noopener"><img src="https://img.shields.io/github/release/iissnan/hexo-theme-next.svg" alt="rel-image"></a><br><a href="http://hexo.io" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/hexo-%3E%3D%203.0-blue.svg" alt="hexo-image"></a><br><a href="LICENSE"><img src="https://img.shields.io/dub/l/vibe-d.svg" alt="lic-image"></a></p>
+<ul>
+<li><a href="http://theme-next.iissnan.com" target="_blank">NexT 使用文档</a> |  <a href="README.md">English Documentation</a></li>
+</ul>
+<h2 id="实时预览-Live-Preview"><a href="#实时预览-Live-Preview" class="headerlink" title="实时预览 Live Preview"></a>实时预览 Live Preview</h2><ul>
+<li>:heart_decoration: Muse 方案: <a href="https://leaferx.online" target="_blank" rel="noopener">LEAFERx</a> | <a href="https://notes.wanghao.work" target="_blank" rel="noopener">XiaMo</a> | <a href="https://oawan.me" target="_blank" rel="noopener">OAwan</a></li>
+<li>:six_pointed_star: Mist 方案: <a href="https://blog.zzbd.org" target="_blank" rel="noopener">Jeff</a> | <a href="http://uchuhimo.me" target="_blank" rel="noopener">uchuhimo</a> | <a href="http://www.ixirong.com" target="_blank" rel="noopener">xirong</a></li>
+<li>:pisces: Pisces 方案: <a href="http://notes.iissnan.com" target="_blank" rel="noopener">Vi</a> | <a href="https://acris.me" target="_blank" rel="noopener">Acris</a> | <a href="https://rainylog.com" target="_blank" rel="noopener">Rainy</a></li>
+<li>:gemini: Gemini 方案: <a href="https://almostover.ru" target="_blank" rel="noopener">Ivan.Nginx</a> | <a href="https://raincal.com" target="_blank" rel="noopener">Raincal</a> | <a href="https://dandyxu.me" target="_blank" rel="noopener">Dandy</a></li>
+</ul>
+<p>更多 NexT 例子点击 <a href="https://github.com/iissnan/hexo-theme-next/issues/119" target="_blank" rel="noopener">这里</a>.</p>
+<h2 id="安装-Installation"><a href="#安装-Installation" class="headerlink" title="安装 Installation"></a>安装 Installation</h2><p><strong>1.</strong> 在终端切换到<strong>hexo 根</strong>目录. 在hexo目录下一定有 <code>node_modules</code>, <code>source</code>, <code>themes</code> 和其他文件夹:<br>   <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> hexo</span><br><span class="line">$ ls</span><br><span class="line">_config.yml  node_modules  package.json  public  scaffolds  <span class="built_in">source</span>  themes</span><br></pre></td></tr></table></figure></p>
+<p><strong>2.</strong> 从 github 上获取主题 。这里有几种方式来获取主题:</p>
+<h3 id="下载最新发布的版本-Download-tagged-release-version"><a href="#下载最新发布的版本-Download-tagged-release-version" class="headerlink" title="下载最新发布的版本  Download tagged release version"></a>下载<a href="https://github.com/iissnan/hexo-theme-next/releases/latest" target="_blank" rel="noopener">最新发布的版本</a>  Download tagged release version</h3><p>   在大多数情况下 <strong>稳定</strong>。 推荐用户下载这个。</p>
+<p>   <a href="http://lmgtfy.com/?q=linux+curl+tar+wget+install" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/install%20with%20-curl%20%7C%20tar%20%7C%20wget-blue.svg" alt="curl-tar-wget-image"></a></p>
+   <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ mkdir themes/next</span><br><span class="line">$ curl -s https://api.github.com/repos/iissnan/hexo-theme-next/releases/latest | grep tarball_url | cut -d <span class="string">'"'</span> -f 4 | wget -i - -O- | tar -zx -C themes/next --strip-components=1</span><br></pre></td></tr></table></figure>
+
+<h3 id="下载标签发布版本-Download-tagged-release-version"><a href="#下载标签发布版本-Download-tagged-release-version" class="headerlink" title="下载标签发布版本  Download tagged release version"></a>下载<a href="https://github.com/iissnan/hexo-theme-next/releases" target="_blank" rel="noopener">标签发布版本</a>  Download tagged release version</h3><p>   您必须定义版本。从<a href="https://github.com/iissnan/hexo-theme-next/tags" target="_blank" rel="noopener">标签列表</a>里选择版本替换<code>v5.1.2</code>。</p>
+<p>   <a href="http://lmgtfy.com/?q=linux+curl+tar+install" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/install%20with%20-curl%20%7C%20tar-blue.svg" alt="curl-tar-image"></a></p>
+   <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ mkdir themes/next</span><br><span class="line">$ curl -L https://api.github.com/repos/iissnan/hexo-theme-next/tarball/v5.1.2 | tar -zxv -C themes/next --strip-components=1</span><br></pre></td></tr></table></figure>
+
+<p>   <a href="http://lmgtfy.com/?q=linux+git+install" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/install%20with%20-git-blue.svg" alt="git-image"></a></p>
+   <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> --branch v5.1.2 https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+
+<h3 id="下载最新的-master-分支-Download-latest-master-branch"><a href="#下载最新的-master-分支-Download-latest-master-branch" class="headerlink" title="下载最新的 master 分支  Download latest master branch"></a>下载<a href="https://github.com/iissnan/hexo-theme-next/archive/master.zip" target="_blank" rel="noopener">最新的 master 分支</a>  Download latest master branch</h3><p>  可能会 <strong>不稳定</strong>, 但是包含最新的特色，推荐开发者下载.</p>
+<p>   <a href="http://lmgtfy.com/?q=linux+curl+tar+install" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/install%20with%20-curl%20%7C%20tar-blue.svg" alt="curl-tar-image"></a></p>
+   <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ mkdir themes/next</span><br><span class="line">$ curl -L https://api.github.com/repos/iissnan/hexo-theme-next/tarball | tar -zxv -C themes/next --strip-components=1</span><br></pre></td></tr></table></figure>
+
+<p>   <a href="http://lmgtfy.com/?q=linux+git+install" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/install%20with%20-git-blue.svg" alt="git-image"></a></p>
+   <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+
+<p>  使用克隆命令，你将得到<strong>整个存储库</strong>。而且在任何时候你都可以切换到任何标签发布版本。<br>  获取标签列表：</p>
+   <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> themes/next</span><br><span class="line">$ git tag -l</span><br><span class="line">…</span><br><span class="line">v5.0.0</span><br><span class="line">v5.0.1</span><br><span class="line">v5.1.0</span><br><span class="line">v5.1.1</span><br><span class="line">v5.1.2</span><br></pre></td></tr></table></figure>
+
+<p>   例如, 你想要切换到<code>v5.1.0</code> <a href="https://github.com/iissnan/hexo-theme-next/tags" target="_blank" rel="noopener">标签发布版本</a>. 输入以下命令:</p>
+   <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ git checkout tags/v5.1.0</span><br><span class="line">Note: checking out <span class="string">'tags/v5.1.0'</span>.</span><br><span class="line">…</span><br><span class="line">HEAD now on 1f72f68... CSS: Remove global list-style setting of ul</span><br></pre></td></tr></table></figure>
+
+<p>   如果你想切换回 <a href="https://github.com/iissnan/hexo-theme-next/commits/master" target="_blank" rel="noopener">master 分支</a>的话, 输入这个命令:</p>
+   <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ git checkout master</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.</strong> 在 <strong>hexo 根目录下</strong> 的配置文件<code>_config.yml</code>里设置主题:</p>
+<pre><code>theme: next</code></pre><h3 id="Bugs"><a href="#Bugs" class="headerlink" title="Bugs"></a>Bugs</h3><p>对于那些遇到 <strong>Error: Cannot find module ‘hexo-util’</strong> <a href="https://github.com/iissnan/hexo-theme-next/issues/1490" target="_blank" rel="noopener">问题</a>的人, 请检查你的NPM 版本.</p>
+<ul>
+<li><code>版本 &gt; 3</code>: 如果仍然不行的话，请移除 <code>node_modules</code> 文件 然后重新安装，使用 <code>npm install</code>命令。</li>
+<li><code>版本 &lt; 3</code>: 请通过<code>npm install --save-dev hexo-util</code>命令添加<code>hexo-util</code>到你的站点包依赖里</li>
+</ul>
+<h2 id="更新-Update"><a href="#更新-Update" class="headerlink" title="更新 Update"></a>更新 Update</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> themes/next</span><br><span class="line">$ git pull</span><br></pre></td></tr></table></figure>
+
+<h3 id="Bugs-1"><a href="#Bugs-1" class="headerlink" title="Bugs"></a>Bugs</h3><blockquote>
+<p>提交您的更改或存储它们，然后才能合并。</p>
+</blockquote>
+<p>您必须提交，存储或放弃本地更改. 看 <a href="https://stackoverflow.com/a/15745424/5861495" target="_blank" rel="noopener">here</a> 是如何做的。</p>
+<h3 id="使用Hexo-data-files-328-配置主题-Theme-configurations-using-Hexo-data-files-328"><a href="#使用Hexo-data-files-328-配置主题-Theme-configurations-using-Hexo-data-files-328" class="headerlink" title="使用Hexo data files(#328)配置主题  Theme configurations using Hexo data files #328"></a>使用Hexo data files(<a href="https://github.com/iissnan/hexo-theme-next/issues/328" target="_blank" rel="noopener">#328</a>)配置主题  Theme configurations using Hexo data files #328</h3><p>目前升级 NexT 主题的时候并不是非常的流畅。若使用 <code>git pull</code> 的方式，很多时候可能会产生冲突；而下载新版本覆盖安装的方式又需要手动合并主题的 <code>_config.yml</code> 文件。</p>
+<p>在此修改之前， NexT 建议将配置分离，一部分在 站点的配置文件中，另外一部分在主题的配置文件中。将需要自定的选项放置在 站点配置文件中，从而脱离避免更新主题时可能遇到的麻烦。这种方式是可行，但是有一些缺点：</p>
+<ol>
+<li>配置分离成了两个部分</li>
+<li>用户可能会疑惑一些选项该放置在哪里比较合适</li>
+</ol>
+<p>为了解决这个问题， NexT 将会使用 Hexo 的 <a href="https://hexo.io/docs/data-files.html" target="_blank" rel="noopener">Data Files</a> 。然而由于 Data Files 是在 Hexo 3 版本时引进的，所以要使用这个特性，需要 Hexo 的版本不低于 3。</p>
+<p>若你比较喜欢 Hexo 2.x 版本，可以继续使用原先的配置方式。 NexT 保持着向下兼容。</p>
+<h4 id="特性-Benefits"><a href="#特性-Benefits" class="headerlink" title="特性 Benefits"></a>特性 Benefits</h4><p>通过这个特性，你可以将所有的主题配置放置在站点的 <code>source/_data/next.yml</code> 文件中。原先放置在 站点配置文件 中的选项可以迁移到新的位置，同时，主题配置文件可以不用做任何修改。若后续版本有配置相关的改动时，你仅需在 <code>next.yml</code> 中做相应调整即可</p>
+<h4 id="如何使用这个特性-How-to-use-this-feature"><a href="#如何使用这个特性-How-to-use-this-feature" class="headerlink" title="如何使用这个特性 How to use this feature"></a>如何使用这个特性 How to use this feature</h4><ol>
+<li>请先确保你所使用的 Hexo 版本在 3 以上</li>
+<li>在站点的 <code>source/_data</code> 目录下新建 <code>next.yml</code> 文件（<code>_data</code>目录可能需要新建）</li>
+<li>迁移站点配置文件和主题配置文件中的配置到 <code>next.yml</code> 中</li>
+<li>使用 <code>--config source/_data/next.yml</code> 参数启动服务器, 生成或者部署。<br>例如: <code>hexo clean --config source/_data/next.yml &amp;&amp; hexo g --config source/_data/next.yml</code>。</li>
+</ol>
+<h2 id="特色-Features"><a href="#特色-Features" class="headerlink" title="特色 Features"></a>特色 Features</h2><h3 id="支持多国语言-包括"><a href="#支持多国语言-包括" class="headerlink" title="支持多国语言, 包括:"></a>支持多国语言, 包括:</h3><p>:cn: 简体中文 &amp; 繁体中文<br><br>:us: 英语<br><br>:ru: 俄语<br><br>:fr: 法语<br><br>:de: 德语<br><br>:jp: 日语<br><br>:indonesia: 印度尼西亚语<br><br>:portugal: 葡萄牙语 (巴西)<br><br>:kr: 朝鲜语<br><br>:it: 意大利语<br><br>:netherlands: 荷兰语</p>
+<p>默认语言是英语。</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">language:</span> <span class="string">en</span></span><br><span class="line"><span class="comment"># language: zh-Hans</span></span><br><span class="line"><span class="comment"># language: zh-hk</span></span><br><span class="line"><span class="comment"># language: zh-tw</span></span><br><span class="line"><span class="comment"># language: ru</span></span><br><span class="line"><span class="comment"># language: fr-FR</span></span><br><span class="line"><span class="comment"># language: de</span></span><br><span class="line"><span class="comment"># language: ja</span></span><br><span class="line"><span class="comment"># language: id</span></span><br><span class="line"><span class="comment"># language: pt</span></span><br><span class="line"><span class="comment"># language: pt-BR</span></span><br><span class="line"><span class="comment"># language: ko</span></span><br><span class="line"><span class="comment"># language: it</span></span><br><span class="line"><span class="comment"># language: nl-NL</span></span><br></pre></td></tr></table></figure>
+
+<p>在站点配置文件<code>_config.yml</code>中可以将语言切换成中文</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">language:</span> <span class="string">zh-Hans</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="评论支持-Comment-support"><a href="#评论支持-Comment-support" class="headerlink" title="评论支持 Comment support"></a>评论支持 Comment support</h3><p>NexT 已经原生支持 <code>多说</code> and <code>Disqus</code> 评论系统。</p>
+<p>添加以下代码到你的主题配置文件 <code>_config.yml</code>:</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">duoshuo:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">shortname:</span> <span class="string">your-duoshuo-shortname</span></span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">disqus_shortname:</span> <span class="string">your-disqus-shortname</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="标签页-Tags-page"><a href="#标签页-Tags-page" class="headerlink" title="标签页 Tags page"></a>标签页 Tags page</h3><blockquote>
+<p>添加一个标签页面，里面包含您网站中的所有标签。</p>
+</blockquote>
+<ul>
+<li><p>创建一个名为 <code>tags</code> 页面</p>
+<pre><code>hexo new page &quot;tags&quot;</code></pre></li>
+<li><p>编辑标签页, 设置页面类型为<code>tags</code>.</p>
+<pre><code>title: All tags
+date: 2014-12-22 12:39:04
+type: &quot;tags&quot;</code></pre></li>
+<li><p>添加 <code>tags</code> 到主题配置文件 <code>_config.yml</code> 里:</p>
+<pre><code>menu:
+  home: /
+  archives: /archives
+  tags: /tags</code></pre></li>
+</ul>
+<h3 id="分类页-Categories-page"><a href="#分类页-Categories-page" class="headerlink" title="分类页 Categories page"></a>分类页 Categories page</h3><blockquote>
+<p>添加一个分类页面，里面包含您网站中的所有分类。</p>
+</blockquote>
+<ul>
+<li><p>创建一个名为 <code>categories</code> 页面</p>
+<pre><code>hexo new page &quot;categories&quot;</code></pre></li>
+<li><p>编辑分类页, 设置页面类型为 <code>categories</code>.</p>
+<pre><code>title: All categories
+date: 2014-12-22 12:39:04
+type: &quot;categories&quot;</code></pre></li>
+<li><p>添加 <code>categories</code> 到主题配置文件 <code>_config.yml</code> 里:</p>
+<pre><code>menu:
+  home: /
+  archives: /archives
+  categories: /categories</code></pre></li>
+</ul>
+<h3 id="社交媒体-Social-Media"><a href="#社交媒体-Social-Media" class="headerlink" title="社交媒体 Social Media"></a>社交媒体 Social Media</h3><p>NexT 可以自动添加链接到您的社交媒体帐户里:</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">social:</span></span><br><span class="line">  <span class="attr">GitHub:</span> <span class="string">your-github-url</span></span><br><span class="line">  <span class="attr">Twitter:</span> <span class="string">your-twitter-url</span></span><br><span class="line">  <span class="attr">Weibo:</span> <span class="string">your-weibo-url</span></span><br><span class="line">  <span class="attr">DouBan:</span> <span class="string">your-douban-url</span></span><br><span class="line">  <span class="attr">ZhiHu:</span> <span class="string">your-zhihu-url</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Feed-链接-Feed-link"><a href="#Feed-链接-Feed-link" class="headerlink" title="Feed 链接 Feed link"></a>Feed 链接 Feed link</h3><blockquote>
+<p>显示 feed 链接。</p>
+</blockquote>
+<p>在主题配置文件<code>_config.yml</code>里设置<code>rss</code> , 如下所示:</p>
+<ol>
+<li><p><code>rss: false</code> 会禁用 feed 链接。</p>
+</li>
+<li><p><code>rss:</code> 使用站点 feed 链接。这是默认的选项。</p>
+<p> 按照插件<a href="https://github.com/hexojs/hexo-generator-feed" target="_blank" rel="noopener">hexo-generator-feed</a>的README中的安装说明进行操作。在完成这个插件的配置后，Feed链接也生成好了</p>
+</li>
+<li><p><code>rss: http://your-feed-url</code> 设置你的 feed 链接.</p>
+</li>
+</ol>
+<h3 id="内置5种代码高亮主题-Up-to-5-code-highlight-themes-built-in"><a href="#内置5种代码高亮主题-Up-to-5-code-highlight-themes-built-in" class="headerlink" title="内置5种代码高亮主题 Up to 5 code highlight themes built-in"></a>内置5种代码高亮主题 Up to 5 code highlight themes built-in</h3><p>NexT 使用的是 <a href="https://github.com/chriskempson/tomorrow-theme" target="_blank" rel="noopener">Tomorrow 主题</a> ，一共有5种主题供你选择。<br>Next 默认使用 <code>normal</code>. 下面是 <code>normal</code> 和 <code>night</code> 主题的预览:</p>
+<p><img src="http://iissnan.com/nexus/next/tomorrow-normal.png" alt="Tomorrow Normal Preview"><br><img src="http://iissnan.com/nexus/next/tomorrow-night.png" alt="Tomorrow Night Preview"></p>
+<p>查看更多信息点击<a href="https://github.com/chriskempson/tomorrow-theme" target="_blank" rel="noopener">Tomorrow 主题</a>。</p>
+<h2 id="配置-Configuration"><a href="#配置-Configuration" class="headerlink" title="配置 Configuration"></a>配置 Configuration</h2><p>NexT 的配置很少</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># Menu configuration.</span></span><br><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Favicon</span></span><br><span class="line"><span class="attr">favicon:</span> <span class="string">/favicon.ico</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Avatar (put the image into next/source/images/)</span></span><br><span class="line"><span class="comment"># can be any image format supported by web browsers (JPEG,PNG,GIF,SVG,..)</span></span><br><span class="line"><span class="attr">avatar:</span> <span class="string">/default_avatar.png</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Code highlight theme</span></span><br><span class="line"><span class="comment"># available: normal | night | night eighties | night blue | night bright</span></span><br><span class="line"><span class="attr">highlight_theme:</span> <span class="string">normal</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Fancybox for image gallery</span></span><br><span class="line"><span class="attr">fancybox:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Specify the date when the site was setup</span></span><br><span class="line"><span class="attr">since:</span> <span class="number">2013</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="浏览器支持-Browser-support"><a href="#浏览器支持-Browser-support" class="headerlink" title="浏览器支持 Browser support"></a>浏览器支持 Browser support</h2><p><img src="http://iissnan.com/nexus/next/browser-support.png" alt="Browser support"></p>
+<p><a href="https://www.browserstack.com/" target="_blank" rel="noopener"><img src=".github/browserstack_logo.png" alt="Browser Stack"></a></p>
+<blockquote>
+<p><strong>BrowserStack</strong> is a cloud-based cross-browser testing tool that enables developers to test their websites across various browsers on different operating systems and mobile devices, without requiring users to install virtual machines, devices or emulators.</p>
+</blockquote>
+<h2 id="贡献-Contributing"><a href="#贡献-Contributing" class="headerlink" title="贡献 Contributing"></a>贡献 Contributing</h2><p>接受各种形式的贡献，包括不限于提交问题与需求，修复代码。等待您的<code>Pull Request</code>。</p>
+<p>Any types of contribution are welcome. Thanks.</p>
+<p><strong>ATTENTION! Contributors on Chinese docs needed!</strong><br>Need to translate from <a href="README.md">English docs</a> to Chinese docs.<br>Any help wanted!<br>Thank’s a lot!</p>
+<h2 id="开发-Development"><a href="#开发-Development" class="headerlink" title="开发 Development"></a>开发 Development</h2><p>NexT 主旨在于简洁优雅且易于使用，所以首先要尽量确保 NexT 的简洁易用性。</p>
+<p>NexT is built for easily use with elegant appearance. First things first, always keep things simple.</p>
+<h2 id="开发历史-Changelog"><a href="#开发历史-Changelog" class="headerlink" title="开发历史 Changelog"></a><a href="https://github.com/iissnan/hexo-theme-next/wiki/Changelog" target="_blank" rel="noopener">开发历史 Changelog</a></h2><!--[lic-image]: https://img.shields.io/npm/l/hexo-theme-next.svg-->
 ]]></content>
       <categories>
-        <category>technology</category>
+        <category>Guide</category>
       </categories>
       <tags>
-        <tag>Oracle</tag>
-        <tag>Python</tag>
-        <tag>Django</tag>
+        <tag>nexT</tag>
+        <tag>readme</tag>
       </tags>
   </entry>
 </search>
